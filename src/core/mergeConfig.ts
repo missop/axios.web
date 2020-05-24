@@ -27,20 +27,20 @@ stratKeysFormTarget.forEach(key => {
 function deepMergeStrat(source: any, target: any): any {
   if (isPlaginObject(target)) {
     // target是对象
-    deepMerge(source, target)
+    return deepMerge(source, target)
   } else if (typeof target !== 'undefined') {
     // target为简单类型
     return target
   } else if (isPlaginObject(source)) {
     // target为undefined,source为对象
-    deepMerge(source)
+    return deepMerge(source)
   } else if (typeof source !== 'undefined') {
     // target为undefined,source为简单类型
     return source
   }
 }
 
-const stratKeysDeepMerge = ['headers']
+const stratKeysDeepMerge = ['headers', 'auth']
 
 stratKeysDeepMerge.forEach(key => {
   strats[key] = deepMergeStrat
