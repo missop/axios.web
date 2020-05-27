@@ -7,8 +7,8 @@ import transform from './transform'
 
 function transformUrl(config: AxiosRequestConfig): string {
   // 一般在GET请求中需要这样做
-  const { url, params } = config
-  return buildURL(url!, params)
+  const { url, params, paramsSerializer } = config
+  return buildURL(url!, params, paramsSerializer)
 }
 
 function transformConfig(config: AxiosRequestConfig) {
